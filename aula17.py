@@ -30,6 +30,8 @@ class Carrinho:
         for produto in self._produtos:
             print(produto.nome, produto.preco)
 
+        print()
+
 
 class Produto:
     def __init__(self, nome, preco):
