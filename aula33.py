@@ -11,6 +11,16 @@ def adiciona_repr(cls):
     return cls
 
 
+def meu_planeta(metodo):
+    def interno(self, *args, **kwargs):
+        resultado = metodo(self, *args, **kwargs)
+
+        if 'Terra' in resultado:
+            return 'Você esta em casa'
+        return resultado
+    return interno
+
+
 @adiciona_repr
 class Time:
     def __init__(self, nome):
@@ -21,6 +31,10 @@ class Time:
 class Planeta:
     def __init__(self, nome):
         self.nome = nome
+
+    @meu_planeta
+    def falar_nome(self):
+        return f'O planeta é {self.nome}'
 
 
 brasil = Time('Brasil')
@@ -35,3 +49,6 @@ print(portugal)
 
 print(terra)
 print(marte)
+
+print(terra.falar_nome())
+print(marte.falar_nome())
