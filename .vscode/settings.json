@@ -1,6 +1,10 @@
 {
     "[python]": {
-        "editor.defaultFormatter": "ms-python.autopep8"
+        "editor.defaultFormatter": "ms-python.autopep8",
+        "editor.rulers": [
+            80,
+            120
+        ],
     },
     "python.formatting.provider": "none"
 }
