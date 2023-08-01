@@ -3,12 +3,12 @@ Exercício com Abstração, Herança, Encapsulamento e Polimorfismo
 Criar um sistema bancário (extremamente simples) que tem clientes, contas e
 um banco. A ideia é que o cliente tenha uma conta (poupança ou corrente) e que
 possa sacar/depositar nessa conta. Contas corrente tem um limite extra.
-Conta (ABC)
+Conta (ABC):
     ContaCorrente
     ContaPoupanca
-Pessoa (ABC)
+Pessoa(Contas):
     Cliente
-        Clente -> Conta
+        Clente -> Conta (um para um ou um para muitos)
 Banco
     Banco -> Cliente
     Banco -> Conta
@@ -31,5 +31,3 @@ Banco será responsável autenticar o cliente e as contas da seguinte maneira:
 Só será possível sacar se passar na autenticação do banco (descrita acima)
 Banco autentica por um método.
 """
-
-import contas
