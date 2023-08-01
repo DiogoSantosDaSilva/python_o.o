@@ -2,10 +2,15 @@ import abc
 
 
 class Conta(abc.ABC):
-    def __init__(self, agencia: int, conta: int, saldo: float = 0):
+    def __init__(self, agencia: int,
+                 conta: int,
+                 saldo: float = 0,
+                 limite: float = 0
+                 ):
         self.agencia = agencia
         self.conta = conta
         self.saldo = saldo
+        self.limite = limite
 
     @abc.abstractmethod
     def sacar(self, valor: float) -> float: ...
@@ -18,6 +23,12 @@ class Conta(abc.ABC):
     def detalhes(self, msg: str = '') -> None:
         print(f'O seu saldo é {self.saldo:.2f} {msg}')
         print('--')
+
+    def __repr__(self):
+        class_name = type(self).__name__
+        attrs = f'({self.agencia!r}, {self.conta!r}, {self.saldo!r}, '\
+            f'{self.limite!r})'
+        return f'{class_name}, {attrs}'
 
 
 class ContaPoupanca(Conta):
