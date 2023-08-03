@@ -1,7 +1,7 @@
 import abc
 
 
-class Conta(abc.ABC):
+class Contas(abc.ABC):
     def __init__(self, agencia: int,
                  conta: int,
                  saldo: float = 0,
@@ -31,7 +31,7 @@ class Conta(abc.ABC):
         return f'{class_name}, {attrs}'
 
 
-class ContaPoupanca(Conta):
+class ContaPoupanca(Contas):
     def sacar(self, valor):
         valor_pos_saque = self.saldo - valor
 
@@ -45,7 +45,7 @@ class ContaPoupanca(Conta):
         return self.saldo
 
 
-class ContaCorrente(Conta):
+class ContaCorrente(Contas):
     def __init__(self,
                  agencia: int, conta: int, saldo:
                  float = 0, limite: float = 0):
